@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//code.angularjs.org/1.5.8/angular.js"></script>
+  <script src="//code.angularjs.org/1.5.8/angular-aria.js"></script>
+  <script src="//code.angularjs.org/1.5.8/angular-animate.js"></script>
+  <script src="https://rawgit.com/angular/bower-material/master/angular-material.js"></script>
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <link rel="stylesheet" href="https://rawgit.com/angular/bower-material/master/angular-material.css" />
+  <script>
+    var app = angular.module('myapp', ['ngMaterial'])
+      .controller("myController", function($scope, $mdDialog) {
+        $scope.items = [];
+
+        for (i = 0; i < 50; i++) {
+          $scope.items.push(i);
+        }
+
+        $scope.showAdvanced = function(ev) {
+          $mdDialog.show({
+              controller: DialogController,
+              templateUrl: 'index.html',
+              parent: angular.element(document.body),
+              targetEvent: ev,
+              clickOutsideToClose: true,
+              fullscreen: $scope.customFullscreen, // Only for -xs, -sm breakpoints.
+              locals: {
+                Items: $scope.items
+              }
+            })
+            .then(function(answer) {
+              $scope.status = 'You said the information was "' + answer + '".';
+            }, function() {
+              $scope.status = 'You cancelled the dialog.';
+            });
+        };
+
+        function DialogController($scope, $mdDialog, Items) {
+          $scope.items = Items;
+
+          $scope.hide = function() {
+            $mdDialog.hide();
+          };
+
+          $scope.cancel = function() {
+            $mdDialog.cancel();
+          };
+
+          $scope.answer = function(answer) {
+            $mdDialog.hide(answer);
+          };
+        }
+
+      });
+  </script>
+  <style>
+    md-dialog {
+      min-height: 90% !important;
+        max-height: 90% !important;
+        height: 80% !important;
+        width: 500px !important;
+    }
+    
+  </style>
+</head>
+
+<body ng-app='myapp' layout="column" ng-controller="myController">
+  <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+    ICICI LOAN APP
+  </md-button>
+</body>
+
+</html>
