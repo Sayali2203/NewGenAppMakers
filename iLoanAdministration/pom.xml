@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.abnamro.xs2a.tpcservicegroup</groupId>
+	<artifactId>TPPAdministrationScreen</artifactId>
+	<name>${artifactId}</name>
+	<version>1.0.5-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>com.abnamro.xbi</groupId>
+		<artifactId>XBI</artifactId>
+		<version>3.1.1</version>
+	</parent>
+	
+	<properties>	
+		<application.systemletters>API</application.systemletters>
+		<sonar.sources>WebContent/unauthenticated/scripts/services,WebContent/unauthenticated/scripts/controllers</sonar.sources>
+		<sonar.language>js</sonar.language>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+					<appendAssemblyId>false</appendAssemblyId>
+					<finalName>${project.artifactId}</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>API-releases</id>
+			<name>API Maven Releases Repository</name>
+			<url>${url.nexus}/${application.systemletters}-releases</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>API-snapshots</id>
+			<name>API Maven Snapshots Repository</name>
+			<url>${url.nexus}/${application.systemletters}-snapshots</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>
+	
+	<scm>
+		<connection>scm:svn:https://p-subversion.nl.eu.abnamro.com:10443/csvn/API/XS2A/TPCAdministrationScreen/branches/Release_1.1</connection>
+		<developerConnection>scm:svn:https://p-subversion.nl.eu.abnamro.com:10443/csvn/API/XS2A/TPCAdministrationScreen/branches/Release_1.1</developerConnection>
+		<url>https://p-subversion.nl.eu.abnamro.com:10443/csvn/API/XS2A/TPCAdministrationScreen/branches/Release_1.1</url>
+	</scm>
+	
+</project>

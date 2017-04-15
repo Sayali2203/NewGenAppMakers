@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="styles/bootstrap-dialog.min.css" rel="stylesheet"
+	type="text/css">
+<link href="styles/main.css" rel="stylesheet" type="text/css">
+<link href="styles/font-awesome.min.css" rel="stylesheet" />
+<style>
+.bootstrap-dialog.type-primary .modal-header {
+	background: #009286;
+}
+#loading {
+    position:fixed;
+	z-index:1000;
+    background-color:#D0D0D0;
+    width:100%;
+    height:100%;
+    opacity:.5;
+	zoom: 1;
+	filter: alpha(opacity=50);
+ }
+ .ajax-loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px;  /* -1 * image height / 2 */
+    display: block;     
+}
+</style>
+</head>
+<body id="body" ng-app="tpAdmin" style="background-color: white;">
+	<header role="banner">
+		<div class="header-content">
+			<a class="skip" href="#body">Menu</a> <a class="logo"
+				href="index.html"> <img src="images/iLoan.jpg"
+				alt="iLoan" />
+			</a>
+
+		</div>
+	</header>
+	<div ng-view></div>
+	<footer role="contentinfo"  style="margin-top:50px;">
+		<div class="footer-content">
+			<ul class="footer-nav">
+				<!-- <li><a href="#"> Disclaimer </a></li> -->
+			</ul>
+			<div class="copyright-notice">&copy; iLoan 2017</div>
+		</div>
+	</footer>
+	<script src="scripts/generic/angular.min.js"></script>
+	<script src="scripts/generic/angular-gettext.js"></script>
+	<script src="scripts/generic/angular-gettext.min.js"></script>
+	<script src="scripts/generic/angular-route.js"></script>
+	<script src="scripts/generic/jquery-1.10.2.min.js" /></script>
+	<script src="scripts/generic/bootstrap.min.js"></script>
+	<script src="scripts/generic/jsrsasign-5.0.5-all-min.js" /></script>
+	<script src="scripts/generic/bootstrap-dialog.min.js"></script>
+	 <script src="scripts/generic/http-error-handling.js"></script>
+	<script src="scripts/services/app.js"></script>
+	<script src="scripts/services/route.js"></script>
+	<script src="scripts/services/directives.js"></script>
+	<script src="scripts/services/translations.js"></script>
+	<script src="scripts/services/config.js"></script>
+	<script src="scripts/services/utility.js"></script>
+	
+	<script src="scripts/services/appCustomFactory.js"></script>
+	<script src="scripts/generic/ui-bootstrap-tpls-0.14.3.min.js"></script>
+	<script src="scripts/generic/angular-cookies.js"></script>
+  <script src="scripts/controllers/getRequestListController.js"></script>
+  <script src="scripts/controllers/getApplicationDetailsController.js"></script>
+	
+	
+</body>
+</html>

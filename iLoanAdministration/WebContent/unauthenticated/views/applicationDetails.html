@@ -1,0 +1,57 @@
+<aab-tpc-nav></aab-tpc-nav>
+<main role="main"
+	style="height: auto;min-height: 350px;overflow: visible;left:10.5%;width:900px;max-width:900px;">
+<section>
+	<div class="extra-wide">
+		<h1 class="general-title">Application Details for {{applnId}}</h1>
+		<article>
+			<div class="table-overflow-box reports-overflow-box"
+				style="margin: 11px -10px 0px -6px;">
+				<table class="table  table-striped ais-table">
+					<thead class="ais-tableheader">
+						<tr class="tabletitle">
+							<td><span
+								ng-click="applicationDetailsSortType = 'VerificationType'; applicationDetailsSortReverse = !applicationDetailsSortReverse">Verification Type
+
+									<span
+									ng-show="applicationDetailsSortType == 'VerificationType' && !rejectedTppSortReverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="applicationDetailsSortType == 'VerificationType' && applicationDetailsSortReverse"
+									class="fa fa-caret-up"></span>
+							</span></td>
+							<td><span
+								ng-click="applicationDetailsSortType = 'VerificationDetails'; applicationDetailsSortReverse = !applicationDetailsSortReverse">Verification Details
+									<span
+									ng-show="applicationDetailsSortType == 'VerificationDetails' && !applicationDetailsSortReverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="applicationDetailsSortType == 'VerificationDetails' && applicationDetailsSortReverse"
+									class="fa fa-caret-up"></span>
+							</span></td>
+							<td><span
+								ng-click="applicationDetailsSortType = 'status'; applicationDetailsSortReverse = !applicationDetailsSortReverse">Status
+									 <span
+									ng-show="applicationDetailsSortType == 'status' && !applicationDetailsSortReverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="applicationDetailsSortType == 'status' && applicationDetailsSortReverse"
+									class="fa fa-caret-up"></span>
+							</span></td>
+						
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in verificationList | orderBy:applicationDetailsSortType:applicationDetailsSortReverse | filter:applicationDetailsSearch ">
+						<td><span><a href="#/applicationDetails/{{item.VerificationType}}">{{ item.VerificationType }}</a></span></td>
+						<td>{{ item.VerificationDetails }}</td>
+						<td>{{ item.status }}</td>
+					</tr>
+					
+
+					</tbody>
+
+				</table>
+			</div>
+		</article>
+	</div>
+</section>
+</main>

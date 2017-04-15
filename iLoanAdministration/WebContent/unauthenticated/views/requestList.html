@@ -1,0 +1,57 @@
+<aab-tpc-nav></aab-tpc-nav>
+<main role="main"
+	style="height: auto;min-height: 350px;overflow: visible;left:10.5%;width:900px;max-width:900px;">
+<section>
+	<div class="extra-wide">
+		<h1 class="general-title">Loan Request List</h1>
+		<article>
+			<div class="table-overflow-box reports-overflow-box"
+				style="margin: 11px -10px 0px -6px;">
+				<table class="table  table-striped ais-table">
+					<thead class="ais-tableheader">
+						<tr class="tabletitle">
+							<td><span
+								ng-click="requestListSortType = 'requestNo'; requestListSortReverse = !requestListSortReverse">Application No.
+
+									<span
+									ng-show="requestListSortType == 'requestNo' && !requestListSortReverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="requestListSortType == 'requestNo' && requestListSortReverse"
+									class="fa fa-caret-up"></span>
+							</span></td>
+							<td><span
+								ng-click="requestListSortType = 'clientNumber'; requestListSortReverse = !requestListSortReverse">Client No.
+									<span
+									ng-show="requestListSortType == 'clientNumber' && !requestListSortReverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="requestListSortType == 'clientNumber' && requestListSortReverse"
+									class="fa fa-caret-up"></span>
+							</span></td>
+							<td><span
+								ng-click="requestListSortType = 'status'; requestListSortReverse = !requestListSortReverse">Status
+									 <span
+									ng-show="requestListSortType == 'status' && !requestListSortReverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="requestListSortType == 'status' && requestListSortReverse"
+									class="fa fa-caret-up"></span>
+							</span></td>
+						
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in requestList| orderBy:requestListSortType:requestListSortReverse | filter:requestListSearch ">
+						<td><span><a href="#/applicationDetails/{{item.requestNo}}">{{ item.requestNo }}</a></span></td>
+						<td>{{ item.clientNumber }}</td>
+						<td>{{ item.status }}</td>
+					</tr>
+					
+
+					</tbody>
+
+				</table>
+			</div>
+		</article>
+	</div>
+</section>
+</main>
